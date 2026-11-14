@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 560" width="1280" height="560" role="img" aria-labelledby="t d">
+  <title id="t">The hotel-reservation app and the five injected faults</title>
+  <desc id="d">Frontend calls search, profile, recommendation, reservation and user; search calls geo and rate; each backend has its own MongoDB. Faults: profile scaled to zero, geo wrong targetPort, rate bad image, reservation pinned to a missing node, user missing DB_URL.</desc>
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.2" fill="#1E2A44"/></pattern>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3B4C6E"/></marker>
+  </defs>
+  <rect width="1280" height="560" rx="22" fill="#0B1220"/>
+  <rect width="1280" height="560" rx="22" fill="url(#dots)"/>
+  <g font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">
+    <text x="40" y="44" font-size="20" font-weight="800" fill="#E6EDF7">The battlefield: a 14-service hotel-booking app</text>
+    <text x="40" y="68" font-size="14" fill="#8FA0BF">Based on DeathStarBench, the app Microsoft's AIOpsLab uses. Each red tag is one fault OpsPilot is tested on.</text>
+
+    <!-- edges -->
+    <g stroke="#3B4C6E" stroke-width="2" fill="none" marker-end="url(#ar)">
+      <path d="M230 300C300 300 290 145 358 145"/>
+      <path d="M230 300C300 300 290 265 358 265"/>
+      <path d="M230 300C300 300 290 335 358 335"/>
+      <path d="M230 300C300 300 290 405 358 405"/>
+      <path d="M230 300C300 300 290 475 358 475"/>
+      <path d="M530 145C575 145 570 105 618 105"/>
+      <path d="M530 145C575 145 570 185 618 185"/>
+      <path d="M790 105H1044"/><path d="M790 185H1044"/>
+      <path d="M530 265H1044"/><path d="M530 335H1044"/><path d="M530 405H1044"/><path d="M530 475H1044"/>
+    </g>
+
+    <!-- frontend -->
+    <g><rect x="60" y="272" width="170" height="56" rx="12" fill="#13213D" stroke="#38BDF8"/>
+      <text x="145" y="297" font-size="15" font-weight="700" fill="#E6EDF7" text-anchor="middle">🌐 frontend</text>
+      <text x="145" y="316" font-size="11.5" fill="#7DD3FC" text-anchor="middle">:5000 · what users hit</text></g>
+
+    <!-- services -->
+    <g font-size="14.5" font-weight="700" text-anchor="middle">
+      <rect x="360" y="123" width="170" height="44" rx="10" fill="#131D33" stroke="#2B3A5C"/><text x="445" y="150" fill="#E6EDF7">🔎 search</text>
+      <rect x="360" y="243" width="170" height="44" rx="10" fill="#2A1520" stroke="#F87171" stroke-width="2"/><text x="445" y="270" fill="#E6EDF7">👤 profile</text>
+      <rect x="360" y="313" width="170" height="44" rx="10" fill="#131D33" stroke="#2B3A5C"/><text x="445" y="340" fill="#E6EDF7">⭐ recommendation</text>
+      <rect x="360" y="383" width="170" height="44" rx="10" fill="#2A1520" stroke="#F87171" stroke-width="2"/><text x="445" y="410" fill="#E6EDF7">📅 reservation</text>
+      <rect x="360" y="453" width="170" height="44" rx="10" fill="#2A1520" stroke="#F87171" stroke-width="2"/><text x="445" y="480" fill="#E6EDF7">🙋 user</text>
+      <rect x="620" y="83" width="170" height="44" rx="10" fill="#2A1520" stroke="#F87171" stroke-width="2"/><text x="705" y="110" fill="#E6EDF7">📍 geo</text>
+      <rect x="620" y="163" width="170" height="44" rx="10" fill="#2A1520" stroke="#F87171" stroke-width="2"/><text x="705" y="190" fill="#E6EDF7">💲 rate</text>
+    </g>
+
+    <!-- mongos -->
+    <g font-size="12" font-weight="600" text-anchor="middle" fill="#8FA0BF">
+      <rect x="1046" y="87" width="210" height="36" rx="18" fill="#0F2A24" stroke="#1F5145"/><text x="1151" y="110">🍃 mongodb-geo</text>
+      <rect x="1046" y="167" width="210" height="36" rx="18" fill="#0F2A24" stroke="#1F5145"/><text x="1151" y="190">🍃 mongodb-rate</text>
+      <rect x="1046" y="247" width="210" height="36" rx="18" fill="#0F2A24" stroke="#1F5145"/><text x="1151" y="270">🍃 mongodb-profile</text>
+      <rect x="1046" y="317" width="210" height="36" rx="18" fill="#0F2A24" stroke="#1F5145"/><text x="1151" y="340">🍃 mongodb-recommendation</text>
+      <rect x="1046" y="387" width="210" height="36" rx="18" fill="#0F2A24" stroke="#1F5145"/><text x="1151" y="410">🍃 mongodb-reservation</text>
+      <rect x="1046" y="457" width="210" height="36" rx="18" fill="#0F2A24" stroke="#1F5145"/><text x="1151" y="480">🍃 mongodb-user</text>
+    </g>
+
+    <!-- fault tags -->
+    <g font-size="13" font-weight="700" text-anchor="middle">
+      <g><rect x="815" y="91" width="220" height="28" rx="14" fill="#3B1219" stroke="#F87171"/><text x="925" y="110" fill="#FCA5A5">⚡ targetPort → 9999</text></g>
+      <g><rect x="815" y="171" width="220" height="28" rx="14" fill="#3B1219" stroke="#F87171"/><text x="925" y="190" fill="#FCA5A5">⚡ image tag doesn't exist</text></g>
+      <g><rect x="685" y="251" width="220" height="28" rx="14" fill="#3B1219" stroke="#F87171"/><text x="795" y="270" fill="#FCA5A5">⚡ scaled to 0 replicas</text></g>
+      <g><rect x="685" y="391" width="220" height="28" rx="14" fill="#3B1219" stroke="#F87171"/><text x="795" y="410" fill="#FCA5A5">⚡ pinned to a missing node</text></g>
+      <g><rect x="685" y="461" width="220" height="28" rx="14" fill="#3B1219" stroke="#F87171"/><text x="795" y="480" fill="#FCA5A5">⚡ DB_URL removed</text></g>
+    </g>
+
+    <text x="40" y="536" font-size="13.5" fill="#8FA0BF">5 faults × 3 tasks (detect · localize · fix) + 1 trick scenario where nothing is broken = <tspan fill="#E6EDF7" font-weight="700">16 episodes</tspan></text>
+    <text x="1240" y="536" font-size="13.5" fill="#8FA0BF" text-anchor="end">a broken service also breaks every caller upstream</text>
+  </g>
+</svg>
