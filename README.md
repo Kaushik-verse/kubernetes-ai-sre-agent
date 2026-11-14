@@ -191,9 +191,7 @@ GitHub Actions on every push: **ruff + pytest** → **kind end-to-end** (a real 
 
 ### Made with ☕ and curiosity by **Ch Kaushik**
 
-[GitHub](https://github.com/Kaushik-verse) · MIT License
+If OpsPilot is interesting, a ⭐ helps more people find it.
 
-⭐ If you found this interesting, give it a star!
-
-<sub>Built by <b>Ch Kaushik</b> · <a href="https://github.com/Kaushik-verse">@Kaushik-verse</a> · MIT License</sub>
+<sub><a href="https://github.com/Kaushik-verse">@Kaushik-verse</a> · MIT License</sub>
 </div>
