@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 470" width="1280" height="470" role="img" aria-labelledby="t d">
+  <title id="t">The test app and its five faults</title>
+  <desc id="d">Frontend calls search, profile, recommendation, reservation and user; search calls geo and rate; each has its own database. Faults: geo wrong targetPort, rate missing image, profile scaled to zero, reservation pinned to a missing node, user missing DB_URL.</desc>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#B9BCC0"/></marker></defs>
+  <rect width="1280" height="470" rx="22" fill="#F7F6F2"/>
+  <g font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">
+    <text x="48" y="54" font-family="Georgia,serif" font-size="24" fill="#1A1C1E">Five ways to break a hotel-booking app</text>
+    <text x="48" y="80" font-size="14" fill="#5E6368">14 services, based on DeathStarBench. Each fault is injected with a normal kubectl command.</text>
+
+    <g stroke="#B9BCC0" stroke-width="1.4" fill="none" marker-end="url(#a)">
+      <path d="M208 270C260 270 250 140 298 140"/><path d="M208 270C260 270 250 220 298 220"/>
+      <path d="M208 270C260 270 250 280 298 280"/><path d="M208 270C260 270 250 340 298 340"/>
+      <path d="M208 270C260 270 250 400 298 400"/>
+      <path d="M458 140C500 140 490 116 528 116"/><path d="M458 140C500 140 490 172 528 172"/>
+      <path d="M688 116H1028"/><path d="M688 172H1028"/>
+      <path d="M458 220H1028"/><path d="M458 280H1028"/><path d="M458 340H1028"/><path d="M458 400H1028"/>
+    </g>
+
+    <g font-size="14" font-weight="600" text-anchor="middle" fill="#1A1C1E">
+      <rect x="48" y="248" width="160" height="44" rx="10" fill="#1E4D8C"/><text x="128" y="275" fill="#fff">frontend</text>
+      <rect x="298" y="122" width="160" height="36" rx="9" fill="#fff" stroke="#E2DFD6"/><text x="378" y="145">search</text>
+      <rect x="298" y="202" width="160" height="36" rx="9" fill="#fff" stroke="#B4552D" stroke-width="1.6"/><text x="378" y="225">profile</text>
+      <rect x="298" y="262" width="160" height="36" rx="9" fill="#fff" stroke="#E2DFD6"/><text x="378" y="285">recommendation</text>
+      <rect x="298" y="322" width="160" height="36" rx="9" fill="#fff" stroke="#B4552D" stroke-width="1.6"/><text x="378" y="345">reservation</text>
+      <rect x="298" y="382" width="160" height="36" rx="9" fill="#fff" stroke="#B4552D" stroke-width="1.6"/><text x="378" y="405">user</text>
+      <rect x="528" y="98" width="160" height="36" rx="9" fill="#fff" stroke="#B4552D" stroke-width="1.6"/><text x="608" y="121">geo</text>
+      <rect x="528" y="154" width="160" height="36" rx="9" fill="#fff" stroke="#B4552D" stroke-width="1.6"/><text x="608" y="177">rate</text>
+    </g>
+    <g font-size="12.5" text-anchor="middle" fill="#5E6368">
+      <rect x="1030" y="100" width="200" height="32" rx="16" fill="#EEECE6"/><text x="1130" y="121">mongodb-geo</text>
+      <rect x="1030" y="156" width="200" height="32" rx="16" fill="#EEECE6"/><text x="1130" y="177">mongodb-rate</text>
+      <rect x="1030" y="204" width="200" height="32" rx="16" fill="#EEECE6"/><text x="1130" y="225">mongodb-profile</text>
+      <rect x="1030" y="264" width="200" height="32" rx="16" fill="#EEECE6"/><text x="1130" y="285">mongodb-recommendation</text>
+      <rect x="1030" y="324" width="200" height="32" rx="16" fill="#EEECE6"/><text x="1130" y="345">mongodb-reservation</text>
+      <rect x="1030" y="384" width="200" height="32" rx="16" fill="#EEECE6"/><text x="1130" y="405">mongodb-user</text>
+    </g>
+    <g font-size="12.5" font-weight="600" fill="#B4552D" text-anchor="middle">
+      <rect x="760" y="103" width="196" height="26" rx="13" fill="#F7F6F2" stroke="#B4552D"/><text x="858" y="121">targetPort set to 9999</text>
+      <rect x="760" y="159" width="196" height="26" rx="13" fill="#F7F6F2" stroke="#B4552D"/><text x="858" y="177">image tag doesn't exist</text>
+      <rect x="660" y="207" width="196" height="26" rx="13" fill="#F7F6F2" stroke="#B4552D"/><text x="758" y="225">scaled to 0 replicas</text>
+      <rect x="660" y="327" width="196" height="26" rx="13" fill="#F7F6F2" stroke="#B4552D"/><text x="758" y="345">pinned to a missing node</text>
+      <rect x="660" y="387" width="196" height="26" rx="13" fill="#F7F6F2" stroke="#B4552D"/><text x="758" y="405">DB_URL removed</text>
+    </g>
+    <text x="48" y="448" font-size="13" fill="#5E6368">5 faults × 3 tasks, plus one healthy cluster where the right answer is "no fault" = <tspan font-weight="700" fill="#1A1C1E">16 episodes</tspan></text>
+  </g>
+</svg>
